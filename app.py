@@ -1,5 +1,5 @@
 import os, uuid, pathlib, sqlite3
-from flask import Flask, request, render_template, redirect, url_for, abort
+from flask import Flask, request, render_template, redirect, url_for, abort, flash
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -325,6 +325,19 @@ def admin():
     )
 
 path='/static/img/'
+@app.route("/login_admin", methods=["GET", "POST"])
+def login_admin():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if username == "Admin" and password == "123":
+            return redirect(url_for("admin"))
+        else:
+            return render_template("login_admin.html", error=True)
+
+    return render_template("login_admin.html", error=False)
+
 @app.route("/dashboard")
 def dashboard():
     # pass whatever data you like; these are optional
