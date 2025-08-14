@@ -5,120 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c807e72-2c8c-490b-839a-2dc66ff89d29" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/lab_02.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotoSansKhmer-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NotoSansKhmer-VariableFont_wdth,wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/cart.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/checkout.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/home.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/route/support.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/detailpd.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/044c19c0060846d5a9bc391f386738da.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/050aac0d04284b7b871ca59af35bc309.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/05176756447b489da05f6ae59926949d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/05c75397997647cbb34418f910e40014.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/05d42c9dd154438cae3b114a846123f8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/08e804cc49304653baa05b3081f80d79.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/0bc36227372d42af8c651c7119124105.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/0e5b2d1f9c7e4e3b9140d93b4f0a05d8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/0f7a817ec2634788b9ed17a52efb3942.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/126b1e82f8d64b2e82ef23f9f4d7b363.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/16e2fdf72cc948cd87ffc5cb8ee4f0fd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/185646f1403c4a279b66a504dea006a6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/1b4d74d34f7a410fbf0bc83f03a9a8ca.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/1f4fd80c39d04eb2a9ddcfc7a8213203.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/216a4a70e4d546be8cc3955146953b4c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/27a261da2e2c471ba595379a9b7f9091.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/321fd3caad4d41d2ae5201e0fab20789.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/346590873df64179b4f2986d52d10afc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/348742c60dee42a38a3119a8861abc07.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/3651b7090d1a4bd3b45ea52051185eaa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/366a48660af24417996d321871147427.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/391ffd20eaae4d6c9837ee1ff1341fb5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/3f274d041fcb4dbab48d652a746c44de.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/418b7276a92f4965b2788e61186926a7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/431eca38d3be4ae6b4907515635b5da6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/450524c8f6144c7b91b07d57c5b2dea4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/51b4a261b142455ebc17cf9922248b7a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/52297ef55fc14df2a315a9f408e371d2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/5c675955bcd14c729d29c3689a8127a8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/62ce13f881934a3084f6ff0d47591997.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/656a5885575a4cfd905af59291dfd597.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/69a64c047160476693e036237bf99e82.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/6cd5a36cab68405c9a10f24a156928fd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/736571d3db8748c8bc96721c7ae634ed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/8190a177358d41968708cdf86d750279.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/83ba1f7eafde453eae5192811ab4365b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/8822c73ad86a45e59ee8f1cf9d82c9a0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/887e5ae74cba41a7a2dbd68538cea251.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/89d56e61e73e433d8d3387cf4745ea75.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/8a6724bcd1ba414db2d02b7c486a7406.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/8a7380a536394ffdb581af6abeb059bd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/8cc361a483ed4d08a08d9f3a5c57fd11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/91c2289c95d642eb93fe3bdf222fb0a3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/98186d0c0cb8472698c17181e85e5f47.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/9b89180b7ed04352becc765969cdc487.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/a0ceb91071c14bb5836c97c00407837c.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/a4d0a2d0beba4e2db5b8b4f61df31c4f.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ac9c50452a244dabaec126f2508caaa1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ae2ec7b2c65442ddba9c578e492cb39d.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/afea112974334a0e9fa4468e97ef8c53.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/c411c859daba4fb2b85c316a32fa28e7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/c5e4e8da10c148c0ac82b94b48452bf6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ca1c30cb81b440718b2868fa43478bdd.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/cc37ff5ce2374e58a14a9490918b370e.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/d0974d07d4534a76864bc58d18f67c53.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/dc799d4abd1c4a47b172d256caa43ad6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/dfe9b0a11ed14bd6b542508f082f98e1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/e656c8fe85bf4e64a65d69a8bf0bd8a7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/e7647093d4e14049b1b880d5bf714a3b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/eddc62aa448947b399fcb310040ebd23.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ee346c7c9b444311956b6cab8640cdfc.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ef661df74b4a4b64bf114e4ae31c0d59.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/f255460b0b6c411aab00fdb35bf85ef8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/f87cb7e3ec8b42788268ee0922234203.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/fcc7469f583c4c4b944d5ba79e9ccd27.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ffbc2f820da0427d9b44b04c0e6402b3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mater.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/mater.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/Checkout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/addpd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/base_admin.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/catalog.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/dbtest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/electronics.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/jewelery.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/js.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/login1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/men.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/pd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/phone_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/phone_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/phone_update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/style.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/support.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/women.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test.sqlite3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/testsend.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,23 +39,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.test.html.executor&quot;: &quot;Run&quot;,
-    &quot;Python.testsend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Flask/Lab_01&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.test.html.executor": "Run",
+    "Python.testsend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/Flask/Lab_01",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Flask\lab_02\route" />
@@ -307,7 +195,7 @@
       <workItem from="1755133779657" duration="804000" />
       <workItem from="1755141633334" duration="1904000" />
       <workItem from="1755158884251" duration="600000" />
-      <workItem from="1755160126511" duration="1220000" />
+      <workItem from="1755160126511" duration="2544000" />
     </task>
     <servers />
   </component>
