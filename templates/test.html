@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart Post to LocalStorage Demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+</head>
+<body>
+<div id="app" class="container mt-4">
+  <h3>Add Item to Cart (LocalStorage Test)</h3>
+  <form @submit.prevent="submitForm">
+    <div class="row g-2 align-items-end">
+      <div class="col-md-2">
+        <input v-model="form.id" type="number" class="form-control" placeholder="ID" required>
+      </div>
+      <div class="col-md-3">
+        <input v-model="form.title" type="text" class="form-control" placeholder="Title" required>
+      </div>
+      <div class="col-md-2">
+        <input v-model.number="form.price" type="number" min="0" step="0.01" class="form-control" placeholder="Price" required>
+      </div>
+      <div class="col-md-2">
+        <input v-model.number="form.qty" type="number" min="1" class="form-control" placeholder="Qty" required>
+      </div>
+      <div class="col-md-2">
+        <input :value="computedTotal" class="form-control" placeholder="Total Price" disabled>
+      </div>
+      <div class="col-md-1">
+        <button type="submit" class="btn btn-primary w-100">Add</button>
+      </div>
+    </div>
+  </form>
+  <hr>
+  <div>
+    <strong>Last Posted Object:</strong>
+    <pre>{{ lastPosted }}</pre>
+  </div>
+  <div>
+    <strong>Cart in LocalStorage:</strong>
+    <pre>{{ cartArray }}</pre>
+  </div>
+  <button class="btn btn-danger mt-2" @click="clearCart">Clear Cart</button>
+</div>
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+  delimiters: ['[[', ']]'],
+  data() {
+    return {
+      form: {
+        id: '',
+        title: '',
+        price: 0,
+        qty: 1
+      },
+      lastPosted: null
+    };
+  },
+  computed: {
+    computedTotal() {
+      return (this.form.price * this.form.qty).toFixed(2);
+    },
+    cartArray() {
+      return JSON.parse(localStorage.getItem('test')) || [];
+    }
+  },
+  methods: {
+  submitForm() {
+  const data = {
+    id: Number(this.form.id),
+    title: this.form.title,
+    price: Number(this.form.price),
+    qty: Number(this.form.qty),
+    totalPrice: Number((this.form.price * this.form.qty).toFixed(2))
+  };
+  let test = JSON.parse(localStorage.getItem('test')) || [];
+  const idx = test.findIndex(item => item.id === data.id);
+  if (idx !== -1) {
+    // Add to qty and totalPrice of existing item
+    test[idx].qty += data.qty;
+    test[idx].totalPrice += data.totalPrice;
+    test[idx].title = data.title;
+    test[idx].price = data.price;
+  } else {
+    test.push(data);
+  }
+  localStorage.setItem('test', JSON.stringify(test));
+  this.lastPosted = data;
+  // Reset form
+  this.form.id = '';
+  this.form.title = '';
+  this.form.price = 0;
+  this.form.qty = 1;
+}
+
+,
+    clearCart() {
+      localStorage.removeItem('test');
+      this.lastPosted = null;
+    }
+  }
+}).mount('#app');
+</script>
+</body>
+</html>

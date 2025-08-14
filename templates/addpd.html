@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Add Product</title>
+  <style>
+    :root{
+      --bg: #0f172a;          /* slate-900 */
+      --card: #111827;        /* gray-900 */
+      --muted: #9ca3af;       /* gray-400 */
+      --text: #e5e7eb;        /* gray-200 */
+      --primary: #4f46e5;     /* indigo-600 */
+      --primary-600: #4338ca;
+      --ring: rgba(99,102,241,.35);
+      --error: #ef4444;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1000px 600px at 10% -10%, rgba(79,70,229,.20), transparent 60%),
+                  radial-gradient(1000px 600px at 110% 110%, rgba(16,185,129,.15), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      display:grid;
+      place-items:center;
+      padding: 2rem;
+    }
+    .container{
+      width: min(720px, 100%);
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      padding: 2rem;
+    }
+    .header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 1.25rem;
+      gap: 1rem;
+    }
+    h1{
+      font-size: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+      margin:0;
+      font-weight: 700;
+      letter-spacing: .3px;
+    }
+    a.back{
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .95rem;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: .5rem .75rem;
+      border-radius: 10px;
+      transition: .2s ease;
+    }
+    a.back:hover{ color:#fff; border-color: rgba(255,255,255,.24); }
+
+    form{
+      display:grid;
+      gap: 1rem;
+    }
+    .field{
+      display:grid;
+      gap:.5rem;
+    }
+    label{
+      font-size:.95rem;
+      color: var(--muted);
+      display:flex;
+      align-items:center;
+      gap:.35rem;
+    }
+    .req{
+      color: var(--primary);
+      font-weight:700;
+      font-size: .9em;
+    }
+    input[type="text"],
+    input[type="number"],
+    .file-wrap{
+      width:100%;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(2, 6, 23, .3);
+      border-radius: 12px;
+      padding: .9rem 1rem;
+      color: #fff;
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+      font-size: 1rem;
+    }
+    input::placeholder{ color: rgba(229,231,235,.55); }
+    input:focus{
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--ring);
+      background: rgba(2, 6, 23, .45);
+    }
+    .file-wrap{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      cursor:pointer;
+      position: relative;
+    }
+    .file-wrap input[type="file"]{
+      position:absolute;
+      inset:0;
+      opacity:0;
+      cursor:pointer;
+    }
+    .file-btn{
+      padding:.6rem .9rem;
+      border-radius:10px;
+      background: var(--primary);
+      border: 1px solid var(--primary-600);
+      color: white;
+      font-weight: 600;
+      font-size: .95rem;
+      white-space: nowrap;
+      transition: transform .02s ease, filter .2s ease;
+    }
+    .file-wrap:hover .file-btn{ filter: brightness(1.05); }
+    .file-name{ color: #e5e7eb; opacity:.9; }
+    .hint{
+      font-size: .85rem;
+      color: var(--muted);
+    }
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:.75rem;
+      margin-top: .25rem;
+    }
+    button{
+      padding:.9rem 1.1rem;
+      border-radius:12px;
+      border:1px solid var(--primary-600);
+      background: linear-gradient(180deg, var(--primary), #3b33c4);
+      color:white;
+      font-weight:700;
+      letter-spacing:.2px;
+      cursor:pointer;
+      transition: filter .2s ease, transform .02s ease;
+    }
+    button:hover{ filter: brightness(1.05); }
+    button:active{ transform: translateY(1px); }
+    .ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,.14);
+      color: var(--text);
+      font-weight:600;
+    }
+    .error{
+      color: var(--error);
+      font-size: .85rem;
+      display:none;
+    }
+    .success{
+      display:none;
+      color: var(--success);
+      font-size: .95rem;
+      font-weight:600;
+      margin-top:.25rem;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 480px){
+      .actions{ flex-direction: column; align-items: stretch; }
+      a.back{ width:100%; text-align:center; }
+      button{ width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <h1>Add Product</h1>
+        <a class="back" href="#list">Back to list</a>
+      </div>
+
+      <form action="#"  id="product-form" method="POST">
+        <div class="field">
+          <label for="name">Name <span class="req">*</span></label>
+          <input id="name" name="title" type="text" placeholder="e.g., Wireless Mouse" required />
+          <div class="error" id="err-name">Please enter a product name.</div>
+        </div>
+
+        <div class="field">
+          <label for="category">Category <span class="req">*</span></label>
+          <input id="category" name="category" type="text" placeholder="e.g., Accessories" required />
+          <div class="error" id="err-category">Please enter a category.</div>
+        </div>
+
+        <div class="field">
+          <label for="price">Price <span class="req">*</span></label>
+          <input id="price" name="price" type="number" min="0" step="0.01" placeholder="0.00" inputmode="decimal" required />
+          <div class="hint">Enter a non‑negative amount in your currency.</div>
+          <div class="error" id="err-price">Please enter a valid price (0 or greater).</div>
+        </div>
+
+        <div class="field">
+          <label for="image">Image</label>
+          <div class="file-wrap" id="fileWrap">
+            <button type="button" class="file-btn">Choose File</button>
+            <span class="file-name" id="fileName">No file chosen</span>
+            <input id="image" name="image" type="file" accept="image/*" />
+          </div>
+        </div>
+
+        <div class="actions">
+          <input type="submit" value="save">
+          <button class="ghost" type="reset">Reset</button>
+        </div>
+        <div class="success" id="successMsg">Product saved ✅</div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // File chooser label
+    const fileInput = document.getElementById('image');
+    const fileName  = document.getElementById('fileName');
+    fileInput.addEventListener('change', () => {
+      fileName.textContent = fileInput.files?.[0]?.name || 'No file chosen';
+    });
+
+    // Simple client-side validation & demo submit
+    const form = document.getElementById('product-form');
+    const errName = document.getElementById('err-name');
+    const errCat = document.getElementById('err-category');
+    const errPrice = document.getElementById('err-price');
+    const success = document.getElementById('successMsg');
+
+    form.addEventListener('submit', (e) => {
+  let valid = true;
+  // validation checks...
+  if (!form.name.value.trim()) { valid = false; }
+  if (!form.category.value.trim()) { valid = false; }
+  if (isNaN(parseFloat(form.price.value)) || parseFloat(form.price.value) < 0) { valid = false; }
+
+  if (!valid) {
+    e.preventDefault(); // only stop if invalid
+  }
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+{% block slide %}
+<div id="app" class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="glass-card-animated w-100" style="max-width:420px;">
+    <h4 class="text-center mb-4">[[ mode === 'login' ? 'Welcome Back 👋' : 'Create Account' ]]</h4>
+    <transition name="slide-fade">
+      <form v-if="mode === 'login'" @submit.prevent="login" autocomplete="on" key="login">
+  <div class="mb-3">
+    <input v-model="loginForm.username" type="text" class="form-control w-100 shadow-sm" placeholder="Username" required autofocus>
+  </div>
+  <div class="mb-3">
+    <input v-model="loginForm.password" type="password" class="form-control w-100 shadow-sm" placeholder="Password" required>
+  </div>
+  <button type="submit" class="btn btn-gradient w-100 py-2 mb-2 fs-5">Login</button>
+  <div class="text-center mt-2">
+    <small>
+      <span style="color:#888">Don’t have an account?</span>
+      <span class="switch-link ms-1" @click="mode='register'">Register</span>
+    </small>
+  </div>
+</form>
+
+      <form v-else @submit.prevent="register" autocomplete="on" key="register">
+        <div class="mb-3">
+          <input v-model="registerForm.username" type="text" class="form-control shadow-sm" placeholder="Username" required>
+        </div>
+        <div class="mb-3">
+          <input v-model="registerForm.password" type="password" class="form-control shadow-sm" placeholder="Password" required>
+        </div>
+        <div class="mb-3">
+          <input v-model="registerForm.email" type="email" class="form-control shadow-sm" placeholder="Email" required>
+        </div>
+        <button type="submit" class="btn btn-gradient w-100 py-2 mb-2 fs-5">Register</button>
+        <div class="text-center mt-2">
+          <small>
+            <span style="color:#888">Already have an account?</span>
+            <span class="switch-link ms-1" @click="mode='login'">Login</span>
+          </small>
+        </div>
+      </form>
+    </transition>
+    <transition name="slide-fade">
+      <div v-if="message" class="alert alert-info mt-3 text-center" role="alert" key="msg">
+        [[ message ]]
+      </div>
+    </transition>
+  </div>
+</div>
+{% endblock %}

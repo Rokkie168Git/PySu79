@@ -1,0 +1,129 @@
+{% extends 'master.html' %}
+<style>
+    .checkout-title {
+  display: inline-block;
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+}
+    .payment-select {
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px #dbeafe44;
+  font-size: 1.07rem;
+  transition: border-color .18s, box-shadow .15s;
+  padding-left: 1.4em;
+  min-height: 46px;
+}
+.payment-select:focus {
+  border-color: #43cea2;
+  box-shadow: 0 0 0 2px #43cea244;
+}
+
+
+</style>
+{% block slide %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <!-- Checkout Card -->
+    <div class="col-lg-8">
+      <div class="card shadow p-4">
+        <h2 class="mb-4 text-center">Checkout</h2>
+        <div class="row">
+          <!-- Cart Summary -->
+          <div class="col-md-6 border-end">
+            <h5 class="mb-3">Order Summary</h5>
+            <table class="table align-middle mb-3">
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Qty</th>
+                  <th class="text-end">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Example items. In Flask/Jinja: loop through cart items -->
+                <tr v-for="(item,index,i) in cart_list">
+  <td class="d-flex align-items-center">
+    <img :src="item.main_image" alt="" style="width:38px;height:38px;object-fit:cover;margin-right:10px;">
+    <span>
+      [[ item.name.length > 20 ? item.title.substring(0, 20) + '...' : item.title ]]
+    </span>
+  </td>
+  <td>[[ item.qty ]]</td>
+  <td class="text-end text-danger">
+    $[[ (item.price * (item.qty || 1)).toFixed(2) ]]
+  </td>
+</tr>
+
+
+
+
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th colspan="2" class="text-end">Tax(15%)</th>
+                  <th class="text-end text-danger">$[[tax().toFixed(2)]]</th>
+                </tr>
+                <tr>
+                  <th colspan="2" class="text-end">Total</th>
+                  <th class="text-end text-danger">$[[Total().toFixed(2)]]</th>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="alert alert-success mt-3" style="font-size: 0.97em;">
+              <i class="fa fa-lock"></i>
+              Secure checkout. 100% Money Back Guarantee.
+            </div>
+          </div>
+          <!-- Shipping/Payment Form -->
+          <div class="col-md-6">
+            <h5 class="mb-3">Shipping Information</h5>
+            <form @submit.prevent="submitOrder" class="needs-validation" novalidate>
+  <div class="mb-3">
+    <label class="form-label">Full Name</label>
+    <input v-model="fullName" type="text" class="form-control" required>
+    <div class="invalid-feedback">Please enter your full name.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Shipping Address</label>
+    <input v-model="address" type="text" class="form-control" required>
+    <div class="invalid-feedback">Please enter your shipping address.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input v-model="email" type="email" class="form-control" required>
+    <div class="invalid-feedback">Please enter a valid email address.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Phone Number</label>
+    <input v-model="phone" type="tel"
+         class="form-control"
+         required
+         pattern="[0-9]{8,15}"
+         inputmode="numeric"
+         maxlength="15"
+         oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+         title="Please enter a valid phone number (digits only)">
+    <div class="invalid-feedback">Please enter your phone number (digits only).</div>
+  </div>
+  <button type="submit" class="btn btn-primary w-100 mt-2 py-2 fs-5">Complete Order</button>
+</form>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="/pagecart" class="btn btn-outline-secondary me-2">Back to Cart</a>
+        <a href="/" class="btn btn-link">Continue Shopping</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- FontAwesome for lock icon (optional) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Admin{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <style>
+    :root{
+      --primary:#4b77f3; --sidebar:#0f1c2e; --sidebar-text:#c9d6e5; --muted:#8ea0b5;
+      --card:#ffffff; --body:#f6f8fc; --line:#e9eef6;
+    }
+    body{background:var(--body);} .bg-soft{background:#f2f6ff}
+    .layout{display:flex; min-height:100vh;}
+    .sidebar{width:250px; background:var(--sidebar); color:var(--sidebar-text); position:sticky; top:0; height:100vh;}
+    .sidebar .brand{height:64px; display:flex; align-items:center; padding:0 1rem; border-bottom:1px solid rgba(255,255,255,.06)}
+    .sidebar .brand .logo{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,#4b77f3,#55d3c5);margin-right:.75rem}
+    .sb-nav{padding:1rem .75rem; overflow:auto; height:calc(100vh - 64px)}
+    .sb-nav .caption{font-size:.72rem; color:#8aa0b8; text-transform:uppercase; letter-spacing:.08em; margin:.75rem .5rem .25rem}
+    .sb-nav .link{color:var(--sidebar-text); border-radius:.65rem; padding:.55rem .75rem; display:flex; align-items:center}
+    .sb-nav .link i{width:18px; margin-right:.6rem; opacity:.9}
+    .sb-nav .link:hover{background:rgba(255,255,255,.06); color:#fff}
+    .sb-nav .active{background:rgba(75,119,243,.22); color:#fff}
+
+    .main{flex:1; display:flex; flex-direction:column; min-width:0}
+    .topbar{height:64px; display:flex; align-items:center; padding:0 1rem; background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:1030}
+    .topbar .search{max-width:420px}
+
+    .content{padding:1.25rem}
+    .card{border:1px solid var(--line); border-radius:.75rem}
+    .btn-primary{background:var(--primary); border-color:var(--primary)}
+
+    /* mini mode */
+    .mini .sidebar{width:82px}
+    .mini .hide-mini{display:none}
+
+    @media(max-width:991.98px){
+      .sidebar{position:fixed; transform:translateX(-100%); transition:transform .25s ease}
+      .sidebar.show{transform:translateX(0)}
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand d-flex align-items-center p-2">
+  <img src="/static/img/logo.png" alt="Logo" style="height:32px; width:32px; border-radius:8px; margin-right:8px; object-fit:cover;">
+  <strong class="hide-mini text-white" style="font-size:1.2rem; letter-spacing:1px;">RONG</strong>
+</div>
+
+      <div class="sb-nav">
+        <div class="caption">Menu</div>
+        <a href="{{ url_for('dashboard') }}" class="link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+  <i class="fas fa-tachometer-alt"></i>
+  <span class="hide-mini">Dashboard</span>
+</a>
+<a href="{{ url_for('phone_list') }}" class="link {% if request.endpoint.startswith('phone') %}active{% endif %}">
+  <i class="fas fa-mobile-alt"></i>
+  <span class="hide-mini">Phones</span>
+</a>
+          <a href="#" class="link"><i class="far fa-envelope"></i><span class="hide-mini">Email</span></a>
+        <a href="#" class="link"><i class="far fa-file-alt"></i><span class="hide-mini">Invoices</span></a>
+        <div class="caption">Components</div>
+        <a href="#" class="link"><i class="far fa-chart-bar"></i><span class="hide-mini">Charts</span></a>
+        <a href="#" class="link"><i class="fas fa-table"></i><span class="hide-mini">Tables</span></a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <div class="topbar">
+        <button class="btn btn-link d-lg-none" id="sbToggle"><i class="fas fa-bars"></i></button>
+        <button class="btn btn-link d-none d-lg-inline" id="miniToggle"><i class="fas fa-stream"></i></button>
+        <form class="ml-2 w-100">
+          <div class="input-group search">
+            <div class="input-group-prepend"><span class="input-group-text bg-white border-right-0"><i class="fas fa-search"></i></span></div>
+            <input class="form-control border-left-0" placeholder="Search…">
+          </div>
+        </form>
+        <div class="ml-auto d-flex align-items-center">
+          <a class="btn btn-sm btn-outline-secondary mr-2" href="{{ url_for('phone_list') }}">Phones</a>
+          <div class="dropdown">
+            <a class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown"><i class="far fa-user-circle mr-1"></i> Admin</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{{ url_for('catalog') }}">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="content">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('miniToggle').addEventListener('click', function(){
+      document.body.classList.toggle('mini');
+    });
+    document.getElementById('sbToggle').addEventListener('click', function(){
+      document.getElementById('sidebar').classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

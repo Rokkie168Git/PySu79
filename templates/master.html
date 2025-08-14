@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RONGSTORE</title>
+    <!-- Bootstrap CSS v4.6 -->
+   {% include 'style.html' %}
+
+
+</head>
+<body>
+<div id="app">
+
+    <!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 py-2 fixed-top">
+  <div class="container-fluid">
+
+    <!-- Brand -->
+    <a class="navbar-brand" href="/">RONGSTORE</a>
+
+    <!-- Burger Menu for small screens -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar"
+      aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="mainNavbar">
+
+      <!-- Left-side nav links -->
+      <ul class="navbar-nav mr-auto" >
+        <li class="nav-item"><a class="nav-link" href="/">Catalog</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Samsung">SAMSUNG</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Apple">Apple</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Oppo">Oppo</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Xiaomi">Xiaomi</a></li>
+        <li class="nav-item"><a class="nav-link" href="/Vivo">Vivo</a></li>
+          <li class="nav-item"><a class="nav-link" href="/support">Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+      </ul>
+
+      <!-- Right-side search + cart (always shown) -->
+     <div class="d-flex align-items-center ml-auto" style="gap: 10px; max-width: 700px;">
+{#  <a href="/register" class="mr-2">#}
+{#    <i class="fa-sharp-duotone fa-solid fa-user-plus fa-bounce"></i>#}
+{#  </a>#}
+  <form class="search"  style="width: 320px; min-width:150px;">
+    <div class="input-group">
+      <input
+        class="form-control"
+        type="search"
+        placeholder="Category, Title"
+        aria-label="Search"
+        name="search"
+      >
+      <button class="btn btn-primary" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </div>
+  </form>
+  <a class="btn btn-outline-primary" href="/pagecart" style="min-width: 110px;">
+    Cart <span id="cart">([[cart_list.length]])</span>
+  </a>
+</div>
+
+
+
+    </div>
+  </div>
+</nav>
+
+    <!-- Main Content - Split Layout & Full-Width Products -->
+    <div class="container">
+        {% block slide %}
+        	
+        {% endblock %}
+
+        <!-- Section for "More Products You Might Like" - Full Width -->
+        {% block container %}
+        	
+        {% endblock %}
+
+    </div>
+
+
+
+
+
+    <!-- Bootstrap JS and dependencies -->
+</div>
+{% include 'js.html' %}
+
+  <script>
+const { createApp } = Vue;
+createApp({
+  delimiters: ['[[', ']]'],
+  data() {
+    // Load from localStorage and ensure all items have qty
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.forEach(item => {
+      if (!item.qty || isNaN(item.qty)) item.qty = 1;
+      // You can add other default fields here if needed
+    });
+    return {
+      cart_list: cart,
+      total: 0,
+      mode: 'login', // or 'register'
+      loginForm: { username: '', password: '' },
+      registerForm: { username: '', password: '', email: '' },
+      message: '',
+      fullName: '',
+      address: '',
+      email: '',
+      phone: '',
+      amount: {
+        us: 'Login'
+      }
+    }
+  },
+  mounted() {
+    // Extra protection: fix old items if any without qty
+    this.cart_list.forEach(item => {
+      if (!item.qty || isNaN(item.qty)) item.qty = 1;
+    });
+    this.updateCartStorage();
+  },
+  methods: {
+    // Add to cart (avoid duplicates)
+    add(item) {
+      let found = this.cart_list.find(i => i.id === item.id);
+      if (found) {
+        found.qty += 1;
+      } else {
+        // Always set qty = 1 on new items
+        this.cart_list.push({ ...item, qty: 1 });
+      }
+      this.updateCartStorage();
+      Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Product Has been Add to Cart",
+  showConfirmButton: false,
+  timer: 1500
+});
+    },
+
+    // Remove item
+    RemoveCart(index) {
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger"
+        },
+        buttonsStyling: false
+      });
+      swalWithBootstrapButtons.fire({
+        title: "Are you sure 🥺 ?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, Remove it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.cart_list.splice(index, 1);
+          this.updateCartStorage();
+          swalWithBootstrapButtons.fire({
+            title: "Removed!",
+            text: "Your Cart has been Removed.",
+            icon: "success"
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your Cart here :)",
+            icon: "error"
+          });
+        }
+      });
+    },
+
+    // Quantity + and -
+    increaseQty(index) {
+      this.cart_list[index].qty++;
+      this.updateCartStorage();
+    },
+    decreaseQty(index) {
+      if (this.cart_list[index].qty > 1) {
+        this.cart_list[index].qty--;
+        this.updateCartStorage();
+      }
+      // Optionally, remove if qty reaches 0:
+      // else {
+      //   this.cart_list.splice(index, 1);
+      //   this.updateCartStorage();
+      // }
+    },
+
+    // Sync to localStorage
+    updateCartStorage() {
+      localStorage.setItem('cart', JSON.stringify(this.cart_list));
+    },
+
+    // Total calculation uses qty!
+    totalPrice() {
+      return this.cart_list.reduce(
+        (sum, item) => sum + Number(item.price) * (item.qty || 1),
+        0
+      );
+    },
+    tax() {
+      return this.totalPrice() * 15 / 100;
+    },
+    Total() {
+      return this.totalPrice() + this.tax();
+    },
+
+    // Login/Register logic (unchanged)
+    login() {
+      if (this.loginForm.username && this.loginForm.password) {
+        let users = JSON.parse(localStorage.getItem('User')) || [];
+        const found = users.find(u =>
+          u.username === this.loginForm.username &&
+          u.password === this.loginForm.password
+        );
+        if (found) {
+          this.message = `Welcome, ${found.username}! 🎉`;
+          setTimeout(() => { window.location.href = '/'; }, this.us = found.username);
+        } else {
+          this.message = 'Invalid username or password.';
+        }
+      } else {
+        this.message = 'Please enter your username and password.';
+      }
+    },
+    register() {
+      if (this.registerForm.username && this.registerForm.password && this.registerForm.email) {
+        const data = {
+          username: this.registerForm.username,
+          password: this.registerForm.password,
+          email: this.registerForm.email
+        };
+        let users = JSON.parse(localStorage.getItem('User')) || [];
+        if (users.find(u => u.username === data.username)) {
+          this.message = 'Username already exists.';
+          return;
+        }
+        users.push(data);
+        localStorage.setItem('User', JSON.stringify(users));
+        this.message = `Thanks for registering, ${data.username}!`;
+        setTimeout(() => { this.mode = 'login'; this.message = ''; }, 1300);
+      } else {
+        this.message = 'Please fill in all fields.';
+      }
+    },
+
+    // Order submission (unchanged, but now qty always exists)
+    submitOrder(event) {
+      const form = event.target.closest('form');
+      if (!form.checkValidity()) {
+        form.classList.add('was-validated');
+        return;
+      }
+      form.classList.remove('was-validated');
+      const allowedDomains = [
+        "gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com", "live.com", "protonmail.com", "aol.com"
+      ];
+      const email = this.email.trim();
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      const emailDomain = email.split('@')[1].toLowerCase();
+      if (!allowedDomains.includes(emailDomain)) {
+        alert('Please enter a real email address (Gmail, Yahoo, Outlook, etc.)');
+        return;
+      }
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let cartSummary = cart.map(item => ({
+        title: item.name,
+          brand:item.brand,
+        price: item.price,
+          image:item.main_image,
+        qty: item.qty || 1
+      }));
+      let total = cart.reduce((sum, item) => sum + Number(item.price) * (item.qty || 1), 0);
+      fetch('api/send-cart-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fullName: this.fullName,
+          address: this.address,
+          email: this.email,
+          phone: this.phone,
+          cart: cartSummary,
+          total: total
+        })
+      })
+        .then(res => res.json())
+        .then(data => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: '💕Your order was successful 😍.',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            localStorage.removeItem('cart');
+            window.location.href = '/';
+          });
+        })
+        .catch(e => alert('Error: ' + e));
+    }
+  }
+}).mount('#app');
+</script>
+
+
+</body>
+
+</html>
