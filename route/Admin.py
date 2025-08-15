@@ -24,12 +24,12 @@ def _save_image(file_storage):
         raise ValueError("Unsupported image type.")
     unique = f"{uuid.uuid4().hex}{ext}"
     file_storage.save(os.path.join(STATIC_IMG_DIR, unique))
-    return unique   # <-- THIS WAS MISSING
+    return unique
 
 def allowed(filename: str) -> bool:
     return pathlib.Path(filename).suffix.lower() in ALLOWED_EXTS
 def save_image(file_storage):
-    """Save an uploaded image and return the unique filename (or '')."""
+
     if not file_storage or not file_storage.filename:
         return ""
     fname = secure_filename(file_storage.filename)
@@ -48,40 +48,7 @@ def get_conn():
     conn.row_factory = sqlite3.Row
     return conn
 
-def init_db():
-    with get_conn() as conn:
-        conn.execute("""
-            CREATE TABLE IF NOT EXISTS phone (
-              id           INTEGER PRIMARY KEY AUTOINCREMENT,
-              name         TEXT        NOT NULL,
-              brand        TEXT        NOT NULL,
-              model        TEXT        NOT NULL,
-              price        REAL        NOT NULL,
-              quantity     INTEGER     NOT NULL DEFAULT 0,
-              warranty_mo  INTEGER     NOT NULL DEFAULT 12,
-              os           TEXT        NOT NULL,
-              cpu          TEXT        NOT NULL,
-              ram_gb       INTEGER     NOT NULL,
-              storage_gb   INTEGER     NOT NULL,
-              display      TEXT        NOT NULL,
-              cameras      TEXT        NOT NULL,
-              battery_mah  INTEGER     NOT NULL,
-              network      TEXT        NOT NULL,
-              color        TEXT        NOT NULL,
-              highlights   TEXT        NOT NULL,
-              description  TEXT        NOT NULL,
-              available    TEXT        NOT NULL DEFAULT 'in_stock',
-              main_image   TEXT        NOT NULL,
-              side_image   TEXT        NOT NULL,
-              sub_image    TEXT        NOT NULL,
-              created_at   TEXT        DEFAULT (datetime('now')),
-              updated_at   TEXT        DEFAULT (datetime('now')),
-              views        INTEGER     NOT NULL DEFAULT 0,
-              sort_order   INTEGER     NOT NULL DEFAULT 0,
-              type         TEXT        NOT NULL
-            );
-        """)
-init_db()
+
 
 # ---- Routes ----
 @app.route("/phones/add", methods=["GET", "POST"])
@@ -158,15 +125,7 @@ def add_phone():
 
     # GET
     return render_template("phone_add.html", errors=None, data={})
-@app.route("/product/<int:product_id>")
-def product_page(product_id: int):
-    with get_conn() as conn:
-        row = conn.execute("SELECT * FROM product WHERE id = ?", (product_id,)).fetchone()
-    if not row:
-        abort(404)
-    # image is stored as filename; build a static URL to show it
-    image_url = url_for("static", filename=f"img/{row['image']}")
-    return render_template("product.html", p=row, image_url=image_url)
+
 
 
 
@@ -343,3 +302,37 @@ def dashboard():
         "dashboard.html",
 
     )
+@app.route('/product/<int:product_id>')
+def product_detail(product_id):
+    connection = sqlite3.connect("test.sqlite3")
+    cursor = connection.cursor()
+    result = cursor.execute(f"select * from phone where id={product_id}").fetchall()
+    phone = []
+    for i in result:
+        product = {
+            'id': i[0],
+            'name': i[1],
+            'brand': i[2],
+            'model': i[3],
+            'price': i[4],
+            'quantity': i[5],
+            'warranty': i[6],
+            'os': i[7],
+            'cpu': i[8],
+            'ram_gb': i[9],
+            'storage_gb': i[10],
+            'display': i[11],
+            'cameras': i[12],
+            'battery_mah': i[13],
+            'network': i[14],
+            'color': i[15],
+            'highlight': i[16],
+            'description': i[17],
+            'available': i[18],
+            'main_image': path + i[19],
+            'side_image': path + i[20],
+            'sub_image': path + i[21],
+            'type': i[22],
+        }
+        phone.append(product)
+    return render_template('product.html' ,phone=phone)

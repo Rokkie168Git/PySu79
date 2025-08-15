@@ -1,14 +1,24 @@
 import sqlite3
 from itertools import product
 
-from flask import request, redirect, url_for
+from flask import request, redirect, url_for, abort
 
 from app import app,render_template
 import requests
 
+from route.Admin import get_conn
+
 path='/static/img/'
 
-
+@app.route("/product/<int:product_id>")
+def product_page(product_id: int):
+    with get_conn() as conn:
+        row = conn.execute("SELECT * FROM product WHERE id = ?", (product_id,)).fetchone()
+    if not row:
+        abort(404)
+    # image is stored as filename; build a static URL to show it
+    image_url = url_for("static", filename=f"img/{row['image']}")
+    return render_template("product.html", p=row, image_url=image_url)
 
 @app.route('/')
 @app.route('/catalog')
@@ -46,40 +56,6 @@ def catalog():  # put application's code here
         data.append(product)
 
     return render_template('catalog.html', data=data)
-@app.route('/product/<int:product_id>')
-def product_detail(product_id):
-    connection = sqlite3.connect("test.sqlite3")
-    cursor = connection.cursor()
-    result = cursor.execute(f"select * from phone where id={product_id}").fetchall()
-    phone = []
-    for i in result:
-        product = {
-            'id': i[0],
-            'name': i[1],
-            'brand': i[2],
-            'model': i[3],
-            'price': i[4],
-            'quantity': i[5],
-            'warranty': i[6],
-            'os': i[7],
-            'cpu': i[8],
-            'ram_gb': i[9],
-            'storage_gb': i[10],
-            'display': i[11],
-            'cameras': i[12],
-            'battery_mah': i[13],
-            'network': i[14],
-            'color': i[15],
-            'highlight': i[16],
-            'description': i[17],
-            'available': i[18],
-            'main_image': path + i[19],
-            'side_image': path + i[20],
-            'sub_image': path + i[21],
-            'type': i[22],
-        }
-        phone.append(product)
-    return render_template('product.html' ,phone=phone)
 
 
 @app.route('/brand/<string:name>')

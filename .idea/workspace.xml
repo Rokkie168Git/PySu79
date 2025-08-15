@@ -6,21 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7c807e72-2c8c-490b-839a-2dc66ff89d29" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotoSansKhmer-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/NotoSansKhmer-VariableFont_wdth,wght.ttf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/Admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/Admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/route/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dbtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/route/Admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/electronics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/jewelery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/men.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Brand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/pd.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/women.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testsend.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Brand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/addpd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +69,7 @@
       <recent name="D:\Flask\lab_02\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.testsend">
+  <component name="RunManager">
     <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/lab_02/templates/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -210,7 +203,7 @@
       <workItem from="1755141633334" duration="1904000" />
       <workItem from="1755158884251" duration="600000" />
       <workItem from="1755160126511" duration="7542000" />
-      <workItem from="1755248481187" duration="9378000" />
+      <workItem from="1755248481187" duration="13639000" />
     </task>
     <servers />
   </component>
