@@ -32,11 +32,11 @@
       <!-- Left-side nav links -->
       <ul class="navbar-nav mr-auto" >
         <li class="nav-item"><a class="nav-link" href="/">Catalog</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Samsung">SAMSUNG</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Apple">Apple</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Oppo">Oppo</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Xiaomi">Xiaomi</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Vivo">Vivo</a></li>
+        <li class="nav-item"><a class="nav-link" href="/brand/Samsung">SAMSUNG</a></li>
+        <li class="nav-item"><a class="nav-link" href="/brand/Apple">Apple</a></li>
+        <li class="nav-item"><a class="nav-link" href="/brand/Oppo">Oppo</a></li>
+        <li class="nav-item"><a class="nav-link" href="/brand/Xiaomi">Xiaomi</a></li>
+        <li class="nav-item"><a class="nav-link" href="/brand/Vivo">Vivo</a></li>
           <li class="nav-item"><a class="nav-link" href="/support">Support</a></li>
           <li class="nav-item"><a class="nav-link" href="/login_admin">Admin</a></li>
       </ul>
@@ -46,20 +46,14 @@
 {#  <a href="/register" class="mr-2">#}
 {#    <i class="fa-sharp-duotone fa-solid fa-user-plus fa-bounce"></i>#}
 {#  </a>#}
-  <form class="search"  style="width: 320px; min-width:150px;">
+  <form id="searchForm" method="POST" action="{{ url_for('search') }}">
     <div class="input-group">
-      <input
-        class="form-control"
-        type="search"
-        placeholder="Category, Title"
-        aria-label="Search"
-        name="search"
-      >
-      <button class="btn btn-primary" type="submit">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </button>
+        <input id="searchInput" class="form-control" type="search" name="search" placeholder="name products">
+        <button class="btn btn-primary" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
     </div>
-  </form>
+</form>
   <a class="btn btn-outline-primary" href="/pagecart" style="min-width: 110px;">
     Cart <span id="cart">([[cart_list.length]])</span>
   </a>

@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7c807e72-2c8c-490b-839a-2dc66ff89d29" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/login_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotoSansKhmer-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/NotoSansKhmer-VariableFont_wdth,wght.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/home.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dbtest.html" beforeDir="false" afterPath="$PROJECT_DIR$/route/Admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/electronics.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jewelery.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/men.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Brand.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/women.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testsend.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,9 +33,9 @@
         <option value="Flask Main" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="SQL File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -38,23 +53,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "JavaScript Debug.test.html.executor": "Run",
-    "Python.testsend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Flask/Lab_01",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.test.html.executor&quot;: &quot;Run&quot;,
+    &quot;Python.testsend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Flask/Lab_01&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Flask\lab_02\route" />
@@ -194,7 +209,8 @@
       <workItem from="1755133779657" duration="804000" />
       <workItem from="1755141633334" duration="1904000" />
       <workItem from="1755158884251" duration="600000" />
-      <workItem from="1755160126511" duration="4982000" />
+      <workItem from="1755160126511" duration="7542000" />
+      <workItem from="1755248481187" duration="9378000" />
     </task>
     <servers />
   </component>
