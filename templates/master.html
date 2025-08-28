@@ -84,6 +84,101 @@
 
     <!-- Bootstrap JS and dependencies -->
 </div>
+
+<footer class="site-footer mt-auto text-light">
+  <!-- Newsletter -->
+  <div class="footer-newsletter bg-primary">
+    <div class="container py-4">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-5">
+          <h5 class="mb-1 fw-bold">Join our newsletter</h5>
+          <div class="small text-white-50">Get updates on deals, new arrivals, and more.</div>
+        </div>
+        <div class="col-lg-7">
+          <form class="row g-2" onsubmit="event.preventDefault(); alert('Thanks for subscribing!');">
+            <div class="col-md-8">
+              <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+            </div>
+            <div class="col-md-4 d-grid">
+              <button class="btn btn-dark btn-lg" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main footer -->
+  <div class="bg-dark">
+    <div class="container py-5">
+<div class="row g-4">
+  <!-- Brand / About -->
+  <div class="col-md-3">
+    <a class="navbar-brand text-light fs-4 fw-bold" href="{{ url_for('catalog') }}">SU7-Ecommerce</a>
+    <p class="text-white-50 mt-2">
+      Quality picks, fast shipping, and easy returns. Build your setup, your way.
+    </p>
+    <div class="d-flex gap-3 mt-3 fs-4">
+      <a class="text-light opacity-75" href="#"><i class="bi bi-facebook"></i></a>
+      <a class="text-light opacity-75" href="#"><i class="bi bi-instagram"></i></a>
+      <a class="text-light opacity-75" href="#"><i class="bi bi-twitter-x"></i></a>
+      <a class="text-light opacity-75" href="#"><i class="bi bi-youtube"></i></a>
+    </div>
+  </div>
+
+  <!-- Customer Service -->
+  <div class="col-md-3">
+    <h6 class="text-uppercase small text-white-50">Customer Service</h6>
+    <ul class="list-unstyled mt-3 footer-links">
+      <li><a href="#">Help Center</a></li>
+      <li><a href="#">Shipping & Delivery</a></li>
+      <li><a href="#">Returns & Refunds</a></li>
+      <li><a href="#">Track Order</a></li>
+    </ul>
+  </div>
+
+  <!-- Midterm -->
+  <div class="col-md-3">
+    <h6 class="text-uppercase small text-white-50">Midterm SU7.9</h6>
+    <ul class="list-unstyled mt-3 footer-links">
+      <li><span class="badge bg-warning text-dark">Lecturer</span> Heng Monorom</li>
+      <li>Group SU7.9</li>
+      <li>Subject: E-commerce</li>
+    </ul>
+  </div>
+
+  <!-- Team -->
+  <div class="col-md-3">
+    <h6 class="text-uppercase small text-white-50">My Team</h6>
+    <ul class="list-unstyled mt-3 footer-links">
+      <li><span class="badge bg-light text-dark me-2">Leader</span> THY Bunrong</li>
+      <li>Vuthea Sovichet</li>
+      <li>PHA Phanith</li>
+      <li>Kong Makara</li>
+      <li>Sreang Mengsruy</li>
+      <li>Chhin PichLyhour</li>
+    </ul>
+  </div>
+</div>
+
+      <hr class="footer-hr my-4">
+
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <div class="small text-white-50 mb-3 mb-md-0">
+          © {{ current_year }} SU7-Ecommerce • All rights reserved.
+        </div>
+        <div class="d-flex align-items-center gap-3 text-white-50">
+          <i class="bi bi-shield-lock"></i> Secure checkout
+          <span class="vr opacity-25"></span>
+          <i class="bi bi-credit-card-2-front"></i> Visa
+          <i class="bi bi-credit-card"></i> MasterCard
+          <i class="bi bi-paypal"></i> PayPal
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 {% include 'js.html' %}
 
   <script>

@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7c807e72-2c8c-490b-839a-2dc66ff89d29" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/Admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/Admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/route/home.py" beforeDir="false" afterPath="$PROJECT_DIR$/route/home.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Brand.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/Brand.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/addpd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/master.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/master.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/test.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +47,7 @@
     &quot;Python.testsend.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Flask/Lab_01&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Flask/lab_02&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -69,7 +63,7 @@
       <recent name="D:\Flask\lab_02\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.lab_02">
     <configuration name="test.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/lab_02/templates/test.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -203,7 +197,9 @@
       <workItem from="1755141633334" duration="1904000" />
       <workItem from="1755158884251" duration="600000" />
       <workItem from="1755160126511" duration="7542000" />
-      <workItem from="1755248481187" duration="13639000" />
+      <workItem from="1755248481187" duration="15049000" />
+      <workItem from="1756281652669" duration="2133000" />
+      <workItem from="1756382937061" duration="5000" />
     </task>
     <servers />
   </component>
